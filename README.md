@@ -7,4 +7,8 @@ When running the `com.example.openapitest.FormUrlEncodedApplicationTests` tests,
     Required String parameter 'foo' is not present]
 ```
 
-If you're running in an IDE, you can breakpoint on `MissingServletRequestParameterException` to debug. 
+The test passes if you comment out the OpenAPI validation filter in `com.example.openapitest.OpenApiValidationConfiguration:16`.
+
+If you're running in an IDE, you can breakpoint on `MissingServletRequestParameterException` to debug.
+
+ 
