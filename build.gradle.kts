@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.2.10.RELEASE"
-    kotlin("jvm") version "1.4.0"
-    kotlin("plugin.spring") version "1.4.0"
+    id("org.springframework.boot") version "2.2.13.RELEASE"
+    kotlin("jvm") version "1.6.0"
+    kotlin("plugin.spring") version "1.6.0"
 }
 
 group = "com.example"
@@ -15,8 +15,8 @@ repositories {
 }
 
 val restAssuredVersion = "4.3.1"
-val springBootVersion = "2.2.10.RELEASE"
-val swaggerRequestValidatorVersion = "2.11.0"
+val springBootVersion = "2.2.13.RELEASE"
+val swaggerRequestValidatorVersion = "2.27.0"
 
 dependencies {
     implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))

@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: Sample API
-  version: 1.0.0
+  version: 1.0.1
 
 paths:
   /test/formUrlEncoded:
@@ -12,6 +12,26 @@ paths:
         required: true
         content:
           application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                foo:
+                  type: string
+              required:
+                - foo
+      responses:
+        200:
+          description: OK
+      tags:
+        - Tests
+
+  /test/rest:
+    post:
+      summary: Send some foo data
+      requestBody:
+        required: true
+        content:
+          application/json:
             schema:
               type: object
               properties:
