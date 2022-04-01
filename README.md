@@ -1,14 +1,20 @@
 
-When running the `com.example.openapitest.FormUrlEncodedApplicationTests` tests, log output shows:
+When running the `com.example.openapitest.RestApplicationTests` tests, log output shows:
 
 ```
-2020-10-27 11:52:19.883  WARN 85471 --- [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : 
-    Resolved [org.springframework.web.bind.MissingServletRequestParameterException: 
-    Required String parameter 'foo' is not present]
+2022-04-01 14:43:40.601 ERROR 17386 --- [nio-8080-exec-1] c.a.o.v.s.DefaultValidationReportHandler : OpenAPI location=REQUEST key=POST#/test/rest levels=ERROR messages=Validation failed.
+[ERROR][REQUEST][POST /test/rest @body] A request body is required but none found.
 ```
 
-The test passes if you comment out the OpenAPI validation filter in `com.example.openapitest.OpenApiValidationConfiguration:16`.
+The test passes if you remove `HttpRequestLoggingFilter` by commenting out
 
-If you're running in an IDE, you can breakpoint on `MissingServletRequestParameterException` to debug.
+```
+@Component
+@Order(OrderedFilter.REQUEST_WRAPPER_FILTER_MAX_ORDER - 2)
+```
+
+in `com.example.openapitest.HttpRequestLoggingFilter`
+
+
 
  
